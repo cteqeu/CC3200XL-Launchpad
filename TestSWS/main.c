@@ -14,6 +14,7 @@
 //#include <prcm.h>
 #include <utils.h>
 
+
 int main(void)
 {
 
@@ -28,12 +29,11 @@ int main(void)
     PinTypeGPIO(PIN_15, PIN_MODE_0, false);
     GPIODirModeSet(GPIOA2_BASE, GPIO_PIN_6, GPIO_DIR_MODE_IN);
     PinTypeGPIO(PIN_04, PIN_MODE_0, false);
-    GPIODirModeSet(GPIOA2_BASE, GPIO_PIN_6, GPIO_DIR_MODE_IN);
-
+    GPIODirModeSet(GPIOA1_BASE, GPIO_PIN_5, GPIO_DIR_MODE_IN);
 
     while(1){
 
-        if(GPIOPinRead(GPIOA2_BASE,GPIO_PIN_6))
+        if(GPIOPinRead(GPIOA2_BASE,GPIO_PIN_6) || GPIOPinRead(GPIOA1_BASE,GPIO_PIN_5))
         {
             GPIOPinWrite(GPIOA1_BASE,0x2,0x2);
             UtilsDelay(8000000);
